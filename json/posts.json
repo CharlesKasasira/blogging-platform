@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Why I chose programming",
+        "author": "Charles Kasasira",
+        "body": "Computer programming is important today because so much of our world is automated. Humans need to be able to control the interaction between people and machines. Since computers and machines are able to do things so efficiently and accurately, we use computer programming to harness that computing power"
+    },
+    {
+        "id": 2,
+        "title": "Thinking in React",
+        "author": "Charles Kasasira",
+        "body": "Thinking in React is a process of making everything that happens in your app happen explicitly. While this seems simple enough, the task of ..."
+    },
+    {
+        "id": 3,
+        "title": "SQL VS NOSQL",
+        "author": "Charles Kasasira",
+        "body": "NoSQL are: SQL databases are relational, NoSQL databases are non-relational. ... SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON."
+    },
+    {
+        "id": 4,
+        "title": "Semantic Versioning, what you should know.",
+        "author": "Charles Kasasira",
+        "body": "Semantic Versioning (SemVer), is an industry-standard for software versioning aiming to make it easier to manage dependencies. Semantic Versioning works by structuring each version identifier into three parts, “MAJOR.MINOR.PATCH” notation."
+    },
+    {
+        "id": 5,
+        "title": "Introduction to the Node Package Manager",
+        "author": "Charles Kasasira",
+        "body": "npm is the default package manager for the JavaScript runtime environment Node.js. It was developed by Isaac Z. Schlueter, written entirely in JavaScript. npm comes with node.js. Yarn and pnpm are alternatives to npm cli."
+    },
+    {
+        "id": 6,
+        "title": "My Time at Ablestate Creatives Limited",
+        "author": "Charles Kasasira",
+        "body": "Hey Charles here, I am an aspiring UI/UX designer with the ability to translate designs into the functional front-end. To achieve my goals, I am undertaking the Ablesolver Cohort at Ablestate Creatives Limited, which I was blessed to participate in on a scholarship basis. …"
+    },
+    {
+        "id": 7,
+        "title": "Output to the command Line using Node.jsL",
+        "author": "Charles Kasasira",
+        "body": "Node.js provides a console module which provides tons of very useful ways to interact with the command line. It is basically the same as the console you find in the browser.The most basic and most used method is console.log(), …"
+    },
+    {
+        "id": 8,
+        "title": "Node REPL",
+        "author": "Charles Kasasira",
+        "body": "REPL (Read Evaluate Print Loop) is a programming language environment that takes single expression as user input and returns the result back to the console. REPL is just like the IDLE for Python."
+    },
+    {
+        "id": 9,
+        "title": "CONTRIBUTE TO OPEN SOURCE (10 outlined steps)L",
+        "author": "Charles Kasasira",
+        "body": "I remember when I made, well my first open source contribution to first-contributions and thought I could share the outlined basic steps for contributing as a beginner."
+    },
+    {
+        "id": 10,
+        "title": "SQL, the Structured Query Language",
+        "author": "Charles Kasasira",
+        "body": "As a developer, you will work with the database, most of them will be Relational database and some, well they won’t be( for that you will have to learn more about the NoSql [not only SQL])."
+    }
+]

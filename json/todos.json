@@ -1,6 +1,32 @@
 [
     {
         "id": 1,
-        "title": "Learn React"
+        "title": "Learn React",
+        "completed": false 
+    },
+    {
+        "id": 2,
+        "title": "Build my portfolio",
+        "completed": true 
+    },
+    {
+        "id": 3,
+        "title": "Host the jsonplaceholder",
+        "completed": true 
+    },
+    {
+        "id": 4,
+        "title": "Go for a wrong walk",
+        "completed": false 
+    },
+    {
+        "id": 5,
+        "title": "Contribute to open source",
+        "completed": true 
+    },
+    {
+        "id": 2,
+        "title": "Build my portfolio",
+        "completed": true 
     }
 ]

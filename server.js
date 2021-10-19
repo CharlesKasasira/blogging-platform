@@ -1,11 +1,11 @@
 const express = require("express");
 const path = require("path");
 
-const PORT = 3000
+const PORT = 3005
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Home")
+    res.sendFile(path.join(__dirname, "index.html"))
 })
 
 app.get("/todos", (req, res) => {
@@ -13,7 +13,7 @@ app.get("/todos", (req, res) => {
 })
 
 app.get("/posts", (req, res) => {
-    res.send("Kasasira's Posts")
+    res.sendFile(path.join(__dirname, "json", "posts.json"))
 })
 
 

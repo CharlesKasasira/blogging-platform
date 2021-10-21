@@ -24,6 +24,23 @@ app.get("/posts", (req, res) => {
     res.sendFile(path.join(__dirname, "json", "posts.json"))
 })
 
+app.get("/posts/:id", (req, res) => {
+    let jsonFile = require('./json/posts.json')
+    const data = [
+        {
+            "id": 1,
+            "name": "Charles kasasira"
+        },
+        {
+            "id": 2,
+            "name": "Ryan Dahl"
+        }
+    ]
+    res.send(jsonFile[+req.params['id']-1])
+    // req.params['id']
+    // res.send(data[+req.params['id']-1])
+})
+
 console.log(cors)
 
 

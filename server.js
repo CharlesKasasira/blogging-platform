@@ -12,6 +12,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }))
 
+// static folder
+app.use(express.static('public'))
+
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"))
 })

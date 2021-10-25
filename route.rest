@@ -1,0 +1,20 @@
+
+GET http://localhost:8889/posts
+
+###
+
+GET http://localhost:8889/posts/64
+
+
+###
+POST http://localhost:8889/posts
+Content-Type: application/json
+
+{
+    "title": "CONTRIBUTE TO OPEN SOURCE (10 outlined steps)",
+    "author": "Charles Kasasira",
+    "description": "As a developer, you will work with the database, most of them will be ...",
+    "image_URL": "https://miro.medium.com/max/700/1*YaEDHvQfHe5XGva5BiX8FQ.png",
+    "body": "A relational database is a database structured to recognize relations ...",
+    "tags": ["Sql", "Msql", "Web Development"]
+}

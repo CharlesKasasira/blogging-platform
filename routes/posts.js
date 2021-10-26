@@ -14,8 +14,15 @@ router.get("/", async (req, res) => {
 
 
 // getting one
-router.get("/:id", (req, res) => {
-    res.send(req.params.id)
+router.get("/:id", async (req, res) => {
+    // res.send(req.params.id)
+    const {id} = req.params
+    try{
+        const blogs = await Blog.findOne({id})
+        res.json(blogs)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
 })
 
 // creating one

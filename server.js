@@ -1,24 +1,15 @@
 require('dotenv').config();
 const express = require("express");
-const bodyParser = require("body-parser")
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose")
-const morgan = require("morgan")
+const app = express();
+
+require("./db/db");
 
 
 const PORT = process.env.PORT || 8889
-const app = express();
 
-// const testURI = "mongodb://localhost:27017/blogDB"
-
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-
-db.once('open', () => console.log('hey, database connected'))
-
-//format log in the server (using an http server logger middleware --morgan--)
-app.use(morgan("dev"));
 
 // static folder
 app.use(express.json())

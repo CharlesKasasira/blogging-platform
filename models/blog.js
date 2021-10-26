@@ -23,7 +23,7 @@ const blogSchema = mongoose.Schema({
     date : {
         type: Date,
         required: true,
-        default: Date.now
+        default: Date.now()
     },
     tags : {
         type: Object,

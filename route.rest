@@ -3,7 +3,7 @@ GET http://localhost:8889/posts
 
 ###
 
-GET http://localhost:8889/posts/64
+GET http://localhost:8889/posts/3
 
 
 ###

@@ -3,7 +3,22 @@ GET http://localhost:8889/posts
 
 ###
 
-GET http://localhost:8889/posts/3
+GET http://localhost:8889/posts/1
+
+
+### 
+DELETE http://localhost:8889/posts/2
+
+
+###
+
+PATCH  http://localhost:8889/posts/6177c935184c31bc1ab7b56f
+
+Content-Type: application/json
+
+{
+    "id": 2
+}
 
 
 ###
@@ -11,10 +26,11 @@ POST http://localhost:8889/posts
 Content-Type: application/json
 
 {
-    "title": "CONTRIBUTE TO OPEN SOURCE (10 outlined steps)",
+    "id": 1,
+    "title": "Hello, World. Just checking",
     "author": "Charles Kasasira",
     "description": "As a developer, you will work with the database, most of them will be ...",
     "image_URL": "https://miro.medium.com/max/700/1*YaEDHvQfHe5XGva5BiX8FQ.png",
     "body": "A relational database is a database structured to recognize relations ...",
-    "tags": ["Sql", "Msql", "Web Development"]
+    "tags": ["Web Development"]
 }

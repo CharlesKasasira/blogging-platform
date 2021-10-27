@@ -15,16 +15,8 @@ router.get("/", async (req, res) => {
 
 
 // getting one
-router.get("/:id", async (req, res) => {
-    // res.send(req.params.id)
-    const {id} = req.params
-    try{
-        const blogs = await Blog.findOne({id})
-        // const blogs = await Blog.findById(id)
-        res.json(blogs)
-    } catch (err){
-        res.status(500).json({message: err.message})
-    }
+router.get("/:id", getPost, async (req, res) => {
+    res.json(res.blog)
 })
 
 // creating one
@@ -47,30 +39,68 @@ router.post("/", async (req, res) => {
     }
 })
 
-// updating one
-router.patch("/:_id", async (req, res) => {
-    const {_id} = req.params
+
+//updating one
+router.patch("/:id", getPost, async(req, res) => {
+    if(req.body.id != null){
+        res.blog.id = req.body.id
+    }
+    if(req.body.title != null){
+        res.blog.title = req.body.title
+    }
+    if(req.body.author != null){
+        res.blog.author = req.body.author
+    }
+    if(req.body.description != null){
+        res.blog.description = req.body.description
+    }
+    if(req.body.image_URL != null){
+        res.blog.image_URL = req.body.image_URL
+    }
+    if(req.body.body != null){
+        res.blog.body = req.body.body
+    }
+    if(req.body.date != null){
+        res.blog.date = req.body.date
+    }
+    if(req.body.tags != null){
+        res.blog.tags = req.body.tags
+    }
+
     try{
-        const blogs = await Blog.findOneAndUpdate({_id})
-        res.json(blogs)
+        const updatedBlog = await res.blog.save();
+        res.json(updatedBlog)
     } catch (err){
-        res.json({message: err.message})
+        res.status(400).json({message: err.message})
     }
     
 })
 
 // deleting one
-router.delete("/:id", async (req, res) => {
-    const {id} = req.params
+router.delete("/:id", getPost, async (req, res) => {
     try{
-        const blogs = await Blog.findOneAndDelete({id})
-        res.json({message: "successfully deleted"})
-    }
-    catch (err){
-        res.json({message: err.message})
+        await res.blog.remove()
+        res.json({message: "successfully deleted post"})
+    } catch (err) {
+        res.status(500).json({message: err.message})
     }
     
 })
+
+async function getPost(req, res, next){
+    let blog
+    try{
+        blog = await Blog.findById(req.params.id)
+        if(blog == null){
+            return res.status(404).json({message: "Cannot find post"})
+        }
+    } catch (err){
+        return res.status(500).json({message: err.message})
+    }
+
+    res.blog = blog
+    next()
+}
 
 
 module.exports = router

@@ -1,9 +1,21 @@
+require('dotenv').config();
 const express = require("express");
-const path = require("path");
 const cors = require("cors");
+const mongoose = require("mongoose")
+const app = express();
+require("./db/db");
+
 
 const PORT = process.env.PORT || 8889
-const app = express();
+
+
+// static folder
+app.use(express.json())
+app.use(express.static('public'))
+
+const blogRouter = require('./routes/posts.js')
+app.use('/posts', blogRouter)
+
 
 // app.use(cors())
 app.use(cors({
@@ -12,40 +24,4 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }))
 
-// static folder
-app.use(express.static('public'))
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"))
-})
-
-app.get("/todos", cors(), (req, res) => {
-    res.sendFile(path.join(__dirname, "json", "todos.json"))
-})
-
-app.get("/posts", (req, res) => {
-    res.sendFile(path.join(__dirname, "json", "posts.json"))
-})
-
-app.get("/posts/:id", (req, res) => {
-    let jsonFile = require('./json/posts.json')
-    const data = [
-        {
-            "id": 1,
-            "name": "Charles kasasira"
-        },
-        {
-            "id": 2,
-            "name": "Ryan Dahl"
-        }
-    ]
-    res.send(jsonFile[+req.params['id']-1])
-    // req.params['id']
-    // res.send(data[+req.params['id']-1])
-})
-
-console.log(cors)
-
-
-
-app.listen(PORT)
+app.listen(PORT, () => console.log("server connected"))

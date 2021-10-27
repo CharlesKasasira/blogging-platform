@@ -1,0 +1,37 @@
+
+GET http://localhost:8889/posts
+
+###
+
+GET http://localhost:8889/posts/61770b0681951e975ee6efc9
+
+
+### 
+DELETE http://localhost:8889/posts/616c43ee5bc3c212bc42ebe8
+
+
+###
+
+PATCH http://localhost:8889/posts/617562c8ff9fed16c0a92281
+
+Content-Type: application/json
+
+{
+    "title": "To code or not to code",
+    "body": "this is the body"
+}
+
+
+###
+POST http://localhost:8889/posts
+Content-Type: application/json
+
+{
+    "id": 6,
+    "title": "NO title.",
+    "author": "NO body",
+    "description": "As a developer, you will work with the database, most of them will be ...",
+    "image_URL": "https://miro.medium.com/max/700/1*YaEDHvQfHe5XGva5BiX8FQ.png",
+    "body": "A relational database is a database structured to recognize relations ...",
+    "tags": ["Web Development"]
+}

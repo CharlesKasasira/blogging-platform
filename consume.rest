@@ -1,0 +1,16 @@
+GET http://localhost:8989/posts/
+
+###
+GET http://localhost:8989/posts/61770b0681951e975ee6efc9
+
+###
+
+PATCH http://localhost:8989/posts/61770b0681951e975ee6efc9
+Content-Type: application/json
+
+{
+    "postNumber": 1
+}
+
+### get post using the post number
+GET http://localhost:8989/posts/1

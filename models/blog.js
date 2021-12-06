@@ -1,39 +1,29 @@
 const mongoose = require("mongoose")
 
-const blogSchema = mongoose.Schema({
-    id: {
-        type: Number,
-        // required: true
-    },
-    title : {
-        type: String,
-        // required: true
-    },
-    author : {
-        type: String,
-        // required: true
-    },
-    description : {
-        type: String,
-        // required: true
-    },
-    image_URL : {
-        type: String
-    },
-    body : {
-        type: String,
-        // required: true
-    },
-    date : {
+const blogSchema = new mongoose.Schema({
+    createdAt: {
         type: Date,
-        required: true,
         default: Date.now()
     },
-    tags : {
-        type: Object,
-        // required: true
+    postNumber: String,
+    title: {
+        type: String,
+        required: true
+    }, 
+    author: {
+        type: String,
+        required: true
+    },
+    body: {
+        type: String,
+        required: true
     }
 })
 
 
-module.exports = mongoose.model('Blog', blogSchema);
+blogSchema.statics.getPost = (postID) => Blog.findOne({postNumber: postID})
+
+
+const Blog = mongoose.model('Blog', blogSchema)
+
+module.exports = Blog

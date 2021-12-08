@@ -1,10 +1,8 @@
 const express = require("express")
 const Blog = require("../models/Blog")
-const getPost = require("../controllers/blog")
-const cors = require("cors")
 const router = express.Router()
 
-router.get("/", cors(), async (req, res) => {
+router.get("/", async (req, res) => {
     try{
         const posts = await Blog.find();
         res.json(posts)
@@ -12,16 +10,6 @@ router.get("/", cors(), async (req, res) => {
         res.json({message: err.message})
     }
 })
-
-/* router.get("/:id", async (req, res) => {
-    try{
-        const { id } = req.params;
-        const post = await Blog.findById(id)
-        res.json(post)
-    } catch(err) {
-        res.json({message: err.message})
-    }  
-}) */
 
 
 
@@ -42,7 +30,7 @@ router.patch("/:id", async (req, res) => {
     } 
 })
 
-router.post("/", cors(), (req, res) => {
+router.post("/", (req, res) => {
     try{
         const post = new Blog({
             id: req.body.title,

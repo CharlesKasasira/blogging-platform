@@ -3,13 +3,17 @@ const cors = require("cors")
 require("./db/db")
 const blogRoute = require("./routes/blogRoute")
 const app = express()
-const PORT = process.env.PORT || 8989;
+const PORT = process.env.PORT || 5000;
 
 
 
 app.use(express.json())
 app.use(cors())
 app.use("/posts", blogRoute)
+
+app.get("/", (req, res) => {
+    res.send("working")
+})
 
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`))

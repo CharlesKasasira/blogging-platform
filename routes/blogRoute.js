@@ -11,13 +11,21 @@ router.get("/", async (req, res) => {
     }
 })
 
-
-
-router.patch("/:id", async (req, res) => {
+router.get('/:postNumber', async (req, res) => {
     try{
-        const { id } = req.params
-        const post = await Blog.findByIdAndUpdate(id, {
-            postNumber: req.body.postNumber,
+        const { postNumber } = req.params
+        const post = await Blog.findOne({postNumber: postNumber})
+        res.json(post)
+    } catch(error) { 
+        res.json({message: err.message})
+    }
+})
+
+
+router.patch("/:postNumber", async (req, res) => {
+    try{
+        const { postNumber } = req.params
+        const post = await Blog.findByIdAndUpdate(postNumber, {
             title: req.body.title,
             author: req.body.author,
             body: req.body.body
@@ -57,14 +65,7 @@ router.delete("/:id", async (req, res) => {
     }
 })
 
-router.get('/:postNumber', async (req, res) => {
-    try{
-        const { postNumber } = req.params
-        // const post = getPost(postNumber)
-        const post = await Blog.findOne({postNumber: postNumber})
-        res.json(post)
-    } catch(error) { res.json({message: err.message})}
-})
+
 
 
 

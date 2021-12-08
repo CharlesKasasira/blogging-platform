@@ -38,10 +38,9 @@ router.patch("/:postNumber", async (req, res) => {
     } 
 })
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
     try{
-        const post = new Blog({
-            id: req.body.title,
+        const post = await new Blog({
             postNumber: req.body.postNumber,
             title: req.body.title,
             author: req.body.author,
@@ -55,10 +54,10 @@ router.post("/", (req, res) => {
     }
 })
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:postNumber", async (req, res) => {
     try{
-        const { id } = req.params 
-        const post = await Blog.findByIdAndDelete(id)
+        const { postNumber } = req.params 
+        const post = await Blog.findByIdAndDelete(postNumber)
         res.json({message: "post deleted successfullly"})
     } catch(err) {
         res.json({message: err.message})

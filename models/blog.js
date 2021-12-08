@@ -5,7 +5,11 @@ const blogSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    postNumber: String,
+    postNumber: {
+        type: String,
+        unique: true,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -20,8 +24,6 @@ const blogSchema = new mongoose.Schema({
     }
 })
 
-
-blogSchema.statics.getPost = (postID) => Blog.findOne({postNumber: postID})
 
 
 const Blog = mongoose.model('Blog', blogSchema)

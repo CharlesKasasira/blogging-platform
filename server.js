@@ -11,9 +11,5 @@ app.use(express.json())
 app.use(cors())
 app.use("/posts", blogRoute)
 
-app.get("/", (req, res) => {
-    res.send("working")
-})
-
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`))

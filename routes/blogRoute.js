@@ -65,8 +65,4 @@ router.delete("/:postNumber", async (req, res) => {
 })
 
 
-
-
-
-
 module.exports = router

@@ -3,7 +3,7 @@ const cors = require("cors")
 require("./db/db")
 const blogRoute = require("./routes/blogRoute")
 const app = express()
-const PORT = process.env.PORT || 8989;
+const PORT = process.env.PORT || 8889;
 
 
 

@@ -12,4 +12,4 @@ app.use(cors())
 app.use("/posts", blogRoute)
 
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`))
+app.listen(PORT)

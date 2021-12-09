@@ -3,7 +3,6 @@ const cors = require("cors")
 require("./db/db")
 const blogRoute = require("./routes/blogRoute")
 const app = express()
-const PORT = process.env.PORT || 5000;
 
 
 
@@ -12,4 +11,4 @@ app.use(cors())
 app.use("/posts", blogRoute)
 
 
-app.listen(PORT)
+app.listen(process.env.PORT || 5000)

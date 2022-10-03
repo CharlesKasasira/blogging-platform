@@ -1,0 +1,26 @@
+POST http://localhost:4000/send-token
+Content-Type: application/json
+
+{
+  "mobile_money_company_id": "1",
+  "phone": "256770559691"
+}
+
+###
+POST http://localhost:4000/make-payment
+Content-Type: application/json
+
+{
+  "amount": "2000",
+  "phone": "256770559691",
+  "secret_code": "123456",
+  "mobile_money_company_id": "2",
+  "reason": "i am making a donation",
+  "metadata": "this is an array of any custom metadata"
+}
+
+###
+GET http://localhost:4000/trial
+
+###
+GET https://api.weatherapi.com/v1/forecast.json?key=93ec627bbff54c968ed133550212210&q=entebbe

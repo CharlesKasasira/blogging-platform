@@ -5,7 +5,7 @@ const cors = require('cors')
 const patasenteRouter = require('./routes/patasente')
 
 var app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

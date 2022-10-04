@@ -2,6 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const express = require("express");
 const router = express.Router();
+const whoiser = require("whoiser");
 
 // const BASE_URL = "https://patasente.me/pay-me/M000309"
 
@@ -68,6 +69,54 @@ router.post("/make-payment", async function (req, res, next) {
       result: "Failed",
     });
   }
+});
+
+
+router.post("/check-domain", async function (req, res, next) {
+  const { domainName } = req.body
+
+  // const domainName = "desireluzindafoundation.org";
+
+  // retrieve WHOIS info from Registrar WHOIS servers
+  const domainWhois = await whoiser(domainName, { follow: 1 });
+
+  const firstDomainWhois = whoiser.firstResult(domainWhois);
+  const firstTextLine = (firstDomainWhois.text[0] || "").toLowerCase();
+
+  let domainAvailability = "unknown";
+
+  if (firstTextLine.includes("reserved")) {
+    domainAvailability = "reserved";
+  } else if (
+    firstDomainWhois["Domain Name"] &&
+    firstDomainWhois["Domain Name"].toLowerCase() === domainName
+  ) {
+    domainAvailability = "registered";
+  } else if (firstTextLine.includes(`no match for "${domainName}"`)) {
+    domainAvailability = "available";
+  }
+
+  if (domainAvailability === "registered") {
+
+    res.status(200).json({ 
+      availability: domainAvailability,
+      created_at:  firstDomainWhois["Created Date"],
+      expire_at: firstDomainWhois["Expiry Date"],
+      server_name: firstDomainWhois["Name Server"],
+      registrar: firstDomainWhois.Registrar
+    });
+    return
+  } else if (domainAvailability === "available") {
+    res.status(200).json({ 
+      availability: domainAvailability,
+      message: "This domain is available for registration right now"
+    });
+    return
+  }
+
+  // console.log(domainAvailability)
+  res.status(200).json({ availability: domainAvailability });
+  return
 });
 
 
